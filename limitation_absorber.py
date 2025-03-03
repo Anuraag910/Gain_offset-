@@ -28,7 +28,8 @@ def scattering_probability(E, theta_min, theta_max):
     sigma_total = total_kn_cross_section(E)
     
     def integrand(theta):
-        return klein_nishina(E, theta) * 2 * np.pi * np.sin(theta)
+        return klein_nishina(E, theta) *np.sqrt(2) * np.sin(theta) 
+     ''' sqrt2 is taken in radian, angle made by horizontal detector to centre of vertical det'''
     
     sigma_range, _ = spi.quad(integrand, theta_min, theta_max)
     
